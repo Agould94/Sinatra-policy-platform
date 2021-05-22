@@ -1,0 +1,9 @@
+<h1><%=@user.username%>'s profile</h1>
+<% if @user.biography %>
+    <h2><%= @user.username %>'s Bio:</h2>
+    <p><%= @user.biography %></p>
+    <p><a href="/users/<%=@user.id%>/edit">Update your biography!</a></p>
+<% else %>
+    <a href="/users/<%=@user.id%>/edit"><h2>Update your biography!</h2></a>
+<% end %>
+    

@@ -1,0 +1,13 @@
+<br>
+<form action="/users/<%= @user.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <div class="name_input">
+        <h3>Update Your Username:</h3>
+        <input type="text" name="username" value="<%= @user.username %>"><br><br>
+    <div>
+    <div class="long_input">
+        <h3>Update Your Biography:</h3>
+        <input type="text" name="biography"><br><br>
+    </div>
+    <input type="submit" value="Update Your Profile">
+</form> 
