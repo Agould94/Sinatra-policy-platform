@@ -10,4 +10,5 @@ use PolicyPositionsController
 use PoliciesController
 use UsersController
 use SessionsController
+use TopicsController
 

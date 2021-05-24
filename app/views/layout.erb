@@ -17,6 +17,8 @@
     <div class="wrapper">
       <nav>
         <% if logged_in? %>
+          <h4><%= current_user.username %></h4>
+          <a href="/topics">Topics</a>
           <a href="/logout">Log Out</a>
         <% else %>
           <a href="/users/new">Sign Up</a>

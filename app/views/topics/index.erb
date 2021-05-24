@@ -1,0 +1,14 @@
+<h1> Available Topics</h1>
+<div class=rank_list>
+    <ul>
+    <% @topics.each do |topic| %>
+        <li><a href="/topics/<%=topic.id%>"><%=topic.name%></a></li>
+    <%end%>
+    </ul>
+</div>
+<br><br>
+<div class=add_button>
+    <form action="/topics/new">
+        <input type="submit" value="Add a Topic">
+    </form>
+</div>

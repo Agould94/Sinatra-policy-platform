@@ -1,1 +1,10 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<%= @policy.title %><br>
+<%= @policy.author%><br>
+<%= @policy.body %><br>
+<a href="/topics/<%=@policy.topic.id%>"><%= @policy.topic.name %></a>
+
+<h5>Delete This Policy:</h5>
+<form action="/policies/<%=@policy.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>

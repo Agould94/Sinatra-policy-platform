@@ -5,6 +5,10 @@ class UsersController < ApplicationController
         erb:"users/index"
     end
 
+    get "/users/new" do
+        erb:"users/new"
+    end
+
     get "/users/:id" do
         @user = User.find(params[:id])
         erb:"users/show"
@@ -23,14 +27,11 @@ class UsersController < ApplicationController
         redirect to "/users/#{@user.id}"
     end
     
-    get "/users/new" do
-        erb:"users/new"
-    end
 
     post "/users" do
         @user = User.create(params)
         session[:user_id] = @user.id
-        redirect "/"
+        redirect "/users/#{@user.id}"
     end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_204845) do
+ActiveRecord::Schema.define(version: 2021_05_22_231147) do
 
   create_table "policies", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_204845) do
     t.integer "adopters"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "topic_id"
   end
 
   create_table "policy_positions", force: :cascade do |t|
@@ -26,6 +27,13 @@ ActiveRecord::Schema.define(version: 2021_05_22_204845) do
     t.string "for_or_against"
     t.string "case"
     t.integer "adopters"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.integer "policies"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

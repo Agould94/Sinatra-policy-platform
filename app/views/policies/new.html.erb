@@ -1,1 +1,28 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Add A New Policy to Discuss and Debate</h1>
+<form action ="/policies" method="post">
+<div> 
+    <label for="Policy-Title">Policy Title</label><br>
+    <input type="text" id="title" name="policy[title]"><br>
+</div>
+<br>
+<div>
+    <label for="Policy-Body">Write out your Policy</label><br>
+    <input type="text" id="body" name="policy[body]"><br>
+</div>
+<div>
+    <label for = "topic List">Which topic category does this policy belong in?</label><br>
+    <ul>
+    <% @topics.each do |topic| %>    
+        <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>"><%= topic.name %></input></li>
+    <% end %>
+    </ul>
+</div>
+<div>
+<label for="New Topic">Or add a new topic:</label><br>
+<input type="text" id="new_topic" name="topic[name]">
+
+</div>
+
+<br><br>
+  <input type="submit" value="Add a new Policy!">
+</form>

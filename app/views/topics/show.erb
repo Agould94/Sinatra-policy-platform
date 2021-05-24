@@ -1,0 +1,14 @@
+<h1><%= @topic.name %>'s Policies</h1>
+<div class=rank_list>
+    <ul>
+    <% @topic.policies.each do |policy| %>
+        <li><a href="/policies/<%=policy.id%>"><%=policy.title%></a></li>
+    <%end%>
+    </ul>
+</div>
+<br><br>
+<div class=add_button>
+    <form action="/policies/new" method="GET">
+        <input type="submit" value="Add a Policy">
+    </form>
+</div>
