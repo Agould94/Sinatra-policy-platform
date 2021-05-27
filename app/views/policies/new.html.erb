@@ -11,11 +11,11 @@
 </div>
 <div>
     <label for = "topic List">Which topic category does this policy belong in?</label><br>
-    <ul>
+    <ol>
     <% @topics.each do |topic| %>    
-        <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>" <%if @topic.name==topic.name%> checked <%end%> ><%= topic.name %></input></li>
+        <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>" <%if @topic && @topic.name==topic.name%> checked <%end%> ><%= topic.name %></input></li>
     <% end %>
-    </ul>
+    </ol>
 </div>
 <div>
 <label for="New Topic">Or add a new topic:</label><br>

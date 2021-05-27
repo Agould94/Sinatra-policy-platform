@@ -1,9 +1,13 @@
-<h1>Discuss and Debate <%=@policy.title%></h1>
+<div class = "policy">
+    <h3>Discuss and Debate <%=@policy.title%></h3>
+    <h3> Read the Policy Here:</h3>
+    <p><%=@policy.body%></p>
+</div>
 <form action ="/policy_positions" method="post">
 <div> 
     <label for="Policy-Position">Policy Title</label><br>
-    <input type="radio" id="for" name="for"> For <%=@policy.title%> <br>
-    <input type="radio" id="Against" name="against"> Against <%=@policy.title%>
+    <input type="radio" id="for_or_against" name="for_or_against" value = "for"> For <%=@policy.title%> <br>
+    <input type="radio" id="for_or_against" name="for_or_against" value = "against"> Against <%=@policy.title%>
 </div>
 <br>
 <div>
@@ -12,7 +16,7 @@
 </div>
 <div>
 </div>
-
+    <input type = "hidden" name ="policy" value="<%=@policy.id%>">
 <br><br>
   <input type="submit" value="Make Your Case!">
 </form>

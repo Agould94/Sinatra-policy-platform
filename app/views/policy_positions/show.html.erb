@@ -1,1 +1,15 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<br><br>
+<h4>This position was originally taken by: <%= @policy_position.author %></h4><br>
+<h4>This position currently has <%= @policy_position.adopters %> adopter(s)</h4> <br>
+<h4>The case that was made <%= @policy_position.for_or_against %> <a href = "/policies/@policy_position.policy.id"><%= @policy_position.policy.title %></a> is:</h4><br>
+<p><%= @policy_position.case %></p>
+<br>
+<br>
+<div>
+    </h5>The users that have adopted this position are:</h5>
+    <ul>
+        <% @policy_position.users.each do |u|%>
+            <li><%=u.username%></li>
+        <%end%>
+    </ul>
+</div>

@@ -14,12 +14,24 @@ class PolicyPositionsController < ApplicationController
 
   # POST: /policy_positions
   post "/policy_positions" do
-    binding.pry
-    redirect "/policy_positions"
+    #binding.pry
+    @policy = Policy.find(params[:policy])
+    @policy_position = PolicyPosition.new 
+    @policy_position.author = current_user.username
+    @policy_position.case = params[:case]
+    @policy_position.policy = @policy
+    @policy_position.for_or_against = params[:for_or_against]
+    if params[:for_or_against] == "for" 
+      @policy_position.users<<current_user
+    end
+    @policy_position.adopters = @policy_position.users.length
+    @policy_position.save
+    redirect "/policy_positions/#{@policy_position.id}"
   end
 
   # GET: /policy_positions/5
   get "/policy_positions/:id" do
+    @policy_position = PolicyPosition.find(params[:id])
     erb :"/policy_positions/show.html"
   end
 
