@@ -1,10 +1,34 @@
-<%= @policy.title %><br>
-<%= @policy.author%><br>
+<div>
+<h1><%= @policy.title %></h1>
+</div>
+<div>
+<h4>Originally written by:</h4>
+<br>
+<%= @policy.author %><br>
+</div>
+<br><br>
+<div>
 <%= @policy.body %><br>
-<a href="/topics/<%=@policy.topic.id%>"><%= @policy.topic.name %></a>
-
-<h5>Delete This Policy:</h5>
-<form action="/policies/<%=@policy.id%>/delete" method="post">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete">
+</div>
+<br><br>
+<div>
+ <p>This policy seeks to improve a <a href="/topics/<%=@policy.topic.id%>"><%= @policy.topic.name %></a> issue.</p>
+</div>
+<% if current_user.username == @policy.author %>
+    <h5>Delete This Policy:</h5>
+    <form action="/policies/<%=@policy.id%>/delete" method="post">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    <h5>Edit This Policy:</h5>
+    <form action="/policies/<%=@policy.id%>/edit" method="post">
+        <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <input type="submit" value="edit">
+    </form>
+    
+<% end %>
+<h5>Add a case for or against this policy:</h5>
+<form action = "/policy_positions/new" method="get">
+    <input id="hidden" type="hidden" name="policy" value = "<%= @policy.id %>">
+    <input type="submit" value ="ADD A CASE">
 </form>

@@ -13,7 +13,7 @@
     <label for = "topic List">Which topic category does this policy belong in?</label><br>
     <ul>
     <% @topics.each do |topic| %>    
-        <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>"><%= topic.name %></input></li>
+        <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>" <%if @topic.name==topic.name%> checked <%end%> ><%= topic.name %></input></li>
     <% end %>
     </ul>
 </div>

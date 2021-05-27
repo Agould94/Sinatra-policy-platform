@@ -9,6 +9,7 @@
 <br><br>
 <div class=add_button>
     <form action="/policies/new" method="GET">
+        <input type = "hidden" id = "topic" name = "topic" value="<%=@topic.id%>">
         <input type="submit" value="Add a Policy">
     </form>
 </div>

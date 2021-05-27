@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_231147) do
+ActiveRecord::Schema.define(version: 2021_05_26_181857) do
 
   create_table "policies", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_231147) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "topic_id"
+    t.integer "user_id"
   end
 
   create_table "policy_positions", force: :cascade do |t|
@@ -33,7 +34,14 @@ ActiveRecord::Schema.define(version: 2021_05_22_231147) do
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
-    t.integer "policies"
+    t.string "policies"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_policypositions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "policy_position_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

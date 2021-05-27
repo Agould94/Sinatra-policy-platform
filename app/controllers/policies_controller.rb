@@ -9,7 +9,15 @@ class PoliciesController < ApplicationController
   # GET: /policies/new
   get "/policies/new" do
     @topics=Topic.all
+    if params[:topic]
+      @topic=Topic.find(params[:topic])
+    end
     erb :"/policies/new.html"
+  end
+
+  post "/policies/new" do
+    @topic = params[:topic]
+    redirect to "/policies/new"
   end
 
   # POST: /policies
@@ -17,12 +25,13 @@ class PoliciesController < ApplicationController
     #binding.pry
 
     @policy = Policy.create(params[:policy])
-    
+    @policy.user = current_user
+    @policy.author = current_user.username
     if !params["topic"]["name"].empty?
       @policy.topic = Topic.create(name: params["topic"]["name"])
     end
     @policy.save
-
+    #binding.pry
     redirect "/policies/#{@policy.id}"
   end
 

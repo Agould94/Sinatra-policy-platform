@@ -7,11 +7,14 @@ class PolicyPositionsController < ApplicationController
 
   # GET: /policy_positions/new
   get "/policy_positions/new" do
+    #binding.pry
+    @policy = Policy.find(params[:policy])
     erb :"/policy_positions/new.html"
   end
 
   # POST: /policy_positions
   post "/policy_positions" do
+    binding.pry
     redirect "/policy_positions"
   end
 

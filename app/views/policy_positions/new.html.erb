@@ -1,1 +1,18 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>Discuss and Debate <%=@policy.title%></h1>
+<form action ="/policy_positions" method="post">
+<div> 
+    <label for="Policy-Position">Policy Title</label><br>
+    <input type="radio" id="for" name="for"> For <%=@policy.title%> <br>
+    <input type="radio" id="Against" name="against"> Against <%=@policy.title%>
+</div>
+<br>
+<div>
+    <label for="Policy-Case">Write out your your case for/against <%=@policy.title%> </label><br>
+    <input type="text" id="body" name="case"><br>
+</div>
+<div>
+</div>
+
+<br><br>
+  <input type="submit" value="Make Your Case!">
+</form>
