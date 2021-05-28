@@ -1,4 +1,4 @@
-<h1>Add A New Policy to Discuss and Debate</h1>
+<h1>Add A New <%if @topic%><%=@topic.name.capitalize%><%end%> Policy to Discuss and Debate</h1>
 <form action ="/policies" method="post">
 <div> 
     <label for="Policy-Title">Policy Title</label><br>
@@ -11,12 +11,13 @@
 </div>
 <div>
     <label for = "topic List">Which topic category does this policy belong in?</label><br>
-    <ol>
+    <ul>
     <% @topics.each do |topic| %>    
         <li><input type="radio" name = "policy[topic_id]" id="<%= topic.id %>" value ="<%=topic.id%>" <%if @topic && @topic.name==topic.name%> checked <%end%> ><%= topic.name %></input></li>
     <% end %>
-    </ol>
+    </ul>
 </div>
+    
 <div>
 <label for="New Topic">Or add a new topic:</label><br>
 <input type="text" id="new_topic" name="topic[name]">

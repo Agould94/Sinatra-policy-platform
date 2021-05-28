@@ -1,1 +1,16 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit This <%=@policy.topic.name.capitalize%> Policy</h1>
+<form action = "/policies/<%=@policy.id%>" method = "post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <div> 
+        <label for="Policy-Title">Policy Title</label><br>
+        <input type="text" id="title" name="policy[title]" value = "<%=@policy.title%>"><br>
+    </div>
+    <br>
+    <div>
+        <label for="Policy-Body">Write out your Policy</label><br>
+        <input type="text" id="body" name="policy[body]" value = "<%=@policy.body%>"><br><br>
+    </div>
+    <div>
+        <input type="submit" value="Edit Policy!">
+    </div>
+</form>

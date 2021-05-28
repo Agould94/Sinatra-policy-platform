@@ -21,12 +21,27 @@
         <input type="submit" value="Delete">
     </form>
     <h5>Edit This Policy:</h5>
-    <form action="/policies/<%=@policy.id%>/edit" method="post">
-        <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <form action="/policies/<%=@policy.id%>/edit" method="get">
         <input type="submit" value="edit">
     </form>
     
 <% end %>
+<p> Cases for <%= @policy.title %>:</p>
+    <ul>
+        <% @policy.policy_positions.each do |p|
+            if p.for_or_against == "for"%>
+                <li><a href = "/policy_positions/<%= p.id %>">By <%= p.author %></a></li>
+            <% end %>
+        <% end %>
+    </ul>
+<p>Cases against <%= @policy.title %></p>
+    <ul>
+    <% @policy.policy_positions.each do |p|
+        if p.for_or_against == "against"%>
+            <li><a href = "/policy_positions/<%= p.id %>">By <%= p.author %></a></li>
+        <% end %>
+    <% end %>
+    </ul>
 <h5>Add a case for or against this policy:</h5>
 <form action = "/policy_positions/new" method="get">
     <input id="hidden" type="hidden" name="policy" value = "<%= @policy.id %>">

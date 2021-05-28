@@ -43,11 +43,15 @@ class PoliciesController < ApplicationController
 
   # GET: /policies/5/edit
   get "/policies/:id/edit" do
+    @policy = Policy.find(params[:id])
     erb :"/policies/edit.html"
   end
 
   # PATCH: /policies/5
   patch "/policies/:id" do
+    @policy = Policy.find(params[:id])
+    @policy.update(params[:policy])
+    #binding.pry
     redirect "/policies/:id"
   end
 

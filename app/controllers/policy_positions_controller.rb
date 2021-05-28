@@ -21,7 +21,7 @@ class PolicyPositionsController < ApplicationController
     @policy_position.case = params[:case]
     @policy_position.policy = @policy
     @policy_position.for_or_against = params[:for_or_against]
-    if params[:for_or_against] == "for" 
+    if params[:for_or_against] == "for" && !@policy_position.users.include?(current_user)
       @policy_position.users<<current_user
     end
     @policy_position.adopters = @policy_position.users.length
