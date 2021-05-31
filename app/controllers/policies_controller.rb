@@ -49,10 +49,11 @@ class PoliciesController < ApplicationController
 
   # PATCH: /policies/5
   patch "/policies/:id" do
+    #binding.pry
     @policy = Policy.find(params[:id])
     @policy.update(params[:policy])
     #binding.pry
-    redirect "/policies/:id"
+    redirect "/policies/#{params[:id]}"
   end
 
   # DELETE: /policies/5/delete

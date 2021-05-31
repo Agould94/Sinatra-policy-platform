@@ -1,6 +1,7 @@
 <br><br>
-<h4>This position was originally taken by: <%= @policy_position.author %></h4><br>
+<h4>This position was originally written by: <%= @policy_position.author %></h4><br>
 <h4>This position currently has <%= @policy_position.adopters %> adopter(s)</h4> <br>
+<h4>This position currently has <%= @policy_position.opposers %> opponent(s)</h4><br>
 <h4>The case that was made <%= @policy_position.for_or_against %></h4> 
 <h4><a href = "/policies/<%= @policy_position.policy.id%>"> <%= @policy_position.policy.title %></a> is:</h4><br>
 <p><%= @policy_position.case %></p>
@@ -15,3 +16,13 @@
     </ul>
 </div>
 
+<form action = "/policy_positions/<%=@policy_position.id%>/support_or_oppose" method = "post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <input type="radio" id="support_or_oppose" name="support_or_oppose" value = "support"> I Support This Position</input><br>
+    <input type="radio" id="support_or_oppose" name="support_or_oppose" value = "oppose"> I Oppose This Position</input><br> <br>
+    <input type="submit" value = "Make your voice heard!">
+</form>
+    
+ 
+
+    
