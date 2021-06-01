@@ -22,7 +22,20 @@
     <input type="radio" id="support_or_oppose" name="support_or_oppose" value = "oppose"> I Oppose This Position</input><br> <br>
     <input type="submit" value = "Make your voice heard!">
 </form>
-    
+
+
+<% if current_user.username == @policy_position.author %>
+<h5>Delete This Policy Poisition:</h5>
+<form action="/policy_positions/<%=@policy_position.id%>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form>
+<h5>Edit This Policy Position:</h5>
+<form action="/policy_positions/<%= @policy_position.id %>/edit" method="get">
+    <input type="submit" value="edit">
+</form>
+
+<% end %>
  
 
     

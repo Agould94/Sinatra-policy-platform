@@ -40,12 +40,16 @@ class PolicyPositionsController < ApplicationController
 
   # GET: /policy_positions/5/edit
   get "/policy_positions/:id/edit" do
+    @policy_position = PolicyPosition.find(params[:id])
     erb :"/policy_positions/edit.html"
   end
 
   # PATCH: /policy_positions/5
   patch "/policy_positions/:id" do
-    redirect "/policy_positions/:id"
+    @policy_position = PolicyPosition.find(params[:id])
+    #binding.pry
+    @policy_position.update(:case => params[:case])
+    redirect "/policy_positions/#{params[:id]}"
   end
 
   patch "/policy_positions/:id/support_or_oppose" do 

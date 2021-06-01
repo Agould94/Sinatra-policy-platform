@@ -1,1 +1,8 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit Your Position</h1>
+<form action = "/policy_positions/<%= @policy_position.id %>" method = "post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    
+    <label for="Policy_-Case">Edit your case for/against <%=@policy_position.policy.title%> </label><br>
+    <input type="text" id="body" name="case" value="<%=@policy_position.case%>"><br><br>
+    <input type = "submit"  value= "update!">
+</form>
