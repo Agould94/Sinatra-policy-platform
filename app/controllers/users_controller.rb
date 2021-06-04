@@ -30,9 +30,13 @@ class UsersController < ApplicationController
 
     post "/users" do
         @user = User.create(params)
-        binding.pry
-        session[:user_id] = @user.id
-        redirect "/users/#{@user.id}"
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect "/users/#{@user.id}"
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect "/users/new"
+        end
     end
 
 
