@@ -1,5 +1,18 @@
+This is an early stage social organization application aimed at developing collective intelligence towards better understanding of, and decision making around political and social policies. 
+--
+This application helpos organize and understand policies by topic areas, store those policies, and opionions about those policies in a database, and connect with other user's opinions through agreement or dissent.
+--
 
-create a .env file in your root directory with the following 
-```
-session_secret
-```
+Download the application, run it by running "shotgun" in the command line, enter a username, and secure password in order to sign up, and beginexploring the application, adding topics, policies, and policy-positions. 
+
+---
+
+
+
+Copyright <2021> <Alexander Gould>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

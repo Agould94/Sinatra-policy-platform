@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         redirect to "/users/#{@user.id}"
     end
     
-
+ 
     post "/users" do
         @user = User.create(params)
         if @user.valid?
